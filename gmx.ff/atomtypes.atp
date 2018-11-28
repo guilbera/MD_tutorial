@@ -1,0 +1,17 @@
+  CF	12.00000	
+  CT    12.00000	
+  CA	12.00000
+  C	12.00000
+  OS	16.00000	
+  O	16.00000	
+  HC	1.008000	
+  HA    1.008000
+  ST	31.97200	;thiophene sulfur
+  CSA	12.00000	;thiophene alpha carbon
+  CST   13.00800	;terminal thiophene alpha carbon
+  CSB	12.00000	;thiophene beta carbon
+  CSR	12.00000	;aliphatic carbon bonded to thiophene
+  CTP	12.00000	;generic aliphatic carbon
+  CH3	12.00000	;terminal aliphatic carbon
+  HCS	1.008000	;hydrogen bonded to thiophene
+  HCP   1.008000	;aliphatic hydrogen 	

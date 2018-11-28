@@ -1,0 +1,248 @@
+[ defaults ]
+; nbfunc        comb-rule       gen-pairs       fudgeLJ fudgeQQ
+  1             2               yes              0.5     0.5
+
+[ atomtypes ]
+; name       mass      charge    ptype      sigma      eps
+;thiophene  
+  ST	 31.97200      0.0000	     A	    0.355    1.046	;thiophene sulfur
+  CSA	 12.00000      0.0000	     A	    0.355    0.293	;thiophene alpha carbon
+  CST	 13.00800      0.0000	     A	    0.355    0.293	;terminal thiophene alpha carbon
+  CSB	 12.00000      0.0000	     A	    0.355    0.293	;thiophene beta carbon
+
+;thiophene hydrogen
+  HCS	 1.008000      0.0000	     A	    0.242    0.126	;hydrogen bonded to thiophene
+
+;alkyl
+  CSR	 12.00000      0.0000	     A	    0.350    0.276	;aliphatic carbon bonded to thiophene
+  CTP	 12.00000      0.0000	     A	    0.350    0.276	;generic aliphatic carbon
+  CH3	 12.00000      0.0000	     A	    0.350    0.276	;terminal aliphatic carbon
+  HCP      1.00800      0.0000        A      0.250    0.126      
+
+;PCBM
+  CF	12.00000	0.000	     A	    0.355    0.293	
+  CT    12.00000	0.000	     A	    0.350    0.293
+  CA	12.00000	0.000	     A	    0.355    0.276
+  C	12.00000	0.000	     A	    0.375    0.439
+  OS	16.00000	0.000	     A	    0.290    0.586
+  O	16.00000	0.000	     A	    0.296    0.879
+  HC	1.008000	0.000	     A	    0.250    0.126
+  HA    1.008000	0.000	     A	    0.242    0.126
+
+[ bondtypes ]
+;   i     j  func             b0              kb
+;thiophene
+  ST	CSA	1	  0.1734	244345.6
+  ST	CST	1	  0.1734	244345.6
+  CSA	CSB	1	  0.1364	418400.0
+  CST	CSB	1	  0.1364	418400.0
+  CSB	CSB	1	  0.1436	376560.0
+
+;thiophene hydrogen 
+  CSB	HCS	1	  0.1082	307105.6
+
+;intermonomer
+  CSA	CSA	1	  0.1435	326352.0
+
+;alkyl
+  CSB	CSR	1	  0.1510	265265.6
+  CSR	CTP	1	  0.1529	224262.4
+  CTP	CTP	1	  0.1529	224262.4
+  CTP	CH3	1	  0.1529	224262.4
+  CSR   HCP      1         0.1090	284600.0
+  CTP    HCP      1         0.1090	284600.0
+  CH3	HCP      1         0.1090	284600.0   
+
+;PCBM
+  CA    CA	1	0.14		393960.0	
+  CA    CT	1	0.151		266280.0
+  CA	HA	1	0.108		308280.0
+  CT	CT	1	0.1529		225120.0
+  CT	CF	1	0.151		266280.0
+  CT	C	1	0.151		266280.0
+  CT	OS	1	0.141		268800.0
+  CT	HC	1	0.109		285600.0
+  C	O	1	0.1229		436800.0
+  C	OS	1	0.1327		179760.0
+  CF	CF	1	0.1458		393960.0
+     
+
+[ angletypes ]
+;    i     j	k    func	b0           kb
+;thiophene
+   CSA	 ST   CSA	1	 91.00	502.080	
+   CSA	 ST   CST	1	 91.00	502.080	
+   ST	CSA   CSB	1	112.00	502.080	
+   ST	CST   CSB	1	112.00	502.080		
+   CSA	CSB   CSB	1	112.50	502.080	
+   CST	CSB   CSB	1	112.50	502.080
+
+;thiophene hydrogenes
+   CSA  CSB   HCS	1	123.50	292.880
+   CST  CSB   HCS	1	123.50	292.880
+   CSB  CSB   HCS	1	124.00	292.880
+
+;intermonomer 
+   ST   CSA   CSA	1	119.00	502.080
+   CSB  CSA   CSA	1	129.00	502.080
+
+;alkyl
+   CSA  CSB   CSR	1	124.00	502.080
+   CST  CSB   CSR	1	124.00	502.080
+   CSB  CSB   CSR	1	123.50	502.080
+   CSB  CSR   CTP	1	114.00	527.184
+   CSR  CTP    CTP	1	112.70	488.273
+   CTP   CTP    CTP	1	112.70	488.273	
+   CTP   CTP    CH3	1	112.70	488.273
+   CSB  CSR   HCP	1	109.50  292.000  
+   HCP   CSR   HCP	1	107.80  276.000
+   HCP   CSR   CTP	1	110.70	313.800
+   CSR  CTP    HCP	1	110.70	313.800
+   HCP   CTP    HCP	1	107.80	276.000
+   HCP   CTP    CTP	1	110.70	313.800
+   HCP   CTP    CH3	1	110.70	313.800
+   CTP   CH3   HCP	1	110.70	313.800
+   HCP   CH3   HCP	1	107.80	276.000
+
+;PCBM
+   CA	CA    CA	1	120.0	529.2
+   CA   CA    CT	1	120.0	588.0	
+   CA   CA    HA	1	120.0	294.0
+   CT   CT    CT	1	112.7	490.1
+   CT   CT    CA	1	114.0	529.2
+   CT   CT    CF	1	114.0	529.2
+   CF   CT    CF	1	109.5	336.0
+   CT   CT    C 	1	111.1	529.2
+   CT   CT    HC	1	110.7	315.0
+   C    CT    HC	1	109.5	294.0
+   OS   CT    HC	1	109.5	294.0
+   HC   CT    HC	1	107.8	277.2
+   CF   CT    CA	1	109.5	336.0
+   CT   C     OS	1	111.4	680.4
+   CT   C     O 	1	120.4	672.0
+   OS   C     O 	1	123.4	697.2
+   C    OS    CT	1	116.9	697.2
+   CF   CF    CT	1	120.0	588.0
+   CF   CF    CF	1	108.0	529.2
+
+[ dihedraltypes ]
+; Ryckaert-Bellemans Dihedrals
+; i	j    k	l func      V1       V2       V3       V4    
+;thiophene
+CST  ST   CSA	CSB    3    30.334     0.0    -30.334     0.0      0.0      0.0 
+CST  ST   CSA	CSA    3     0.0      0.0      0.0      0.0      0.0      0.0
+CSA  ST   CSA	CSB    3    30.334     0.0    -30.334     0.0      0.0      0.0 
+CSA  ST   CSA	CSA    3     0.0      0.0      0.0      0.0      0.0      0.0
+CSA  ST   CST	CSB    3    30.334     0.0    -30.334     0.0      0.0      0.0 
+CSB  CSB  CSA	ST     3    30.334     0.0    -30.334     0.0      0.0      0.0 
+CSB  CSB  CSA	CSA    3     0.0      0.0      0.0      0.0      0.0      0.0
+CSR  CSB  CSA   ST     3     0.0      0.0      0.0      0.0      0.0      0.0
+CSR  CSB  CSA   CSA    3     0.0      0.0      0.0      0.0      0.0      0.0
+CSB  CSB  CST	ST     3    30.334     0.0    -30.334     0.0      0.0      0.0 
+CSR  CSB  CST   ST     3     0.0      0.0      0.0      0.0      0.0      0.0
+CST  CSB  CSB	CSA    3    30.334     0.0    -30.334     0.0      0.0      0.0 
+CSA  CSB  CSB	CSA    3    30.334     0.0    -30.334     0.0      0.0      0.0 
+CSA  CSB  CSB   CSR    3     0.0      0.0      0.0      0.0      0.0      0.0  	   
+
+;intermonomer
+ST   CSA  CSA	CSB    3     0.0      0.0      0.0      0.0      0.0      0.0 
+CSB  CSA  CSA	CSB    3     0.0      0.0      0.0      0.0      0.0      0.0   
+ST   CSA  CSA   ST     3     21.376      0.611      -29.6      2.624      11.932      -2.5827 
+
+
+
+;alkyl
+
+;torsion about aliphatic C-C bonds
+CSR  CTP   CTP    CTP     3	  2.92    -1.46     0.21    -1.68     0.0      0.0     
+CTP   CTP	  CTP    CTP     3 	  2.92    -1.46     0.21    -1.68     0.0      0.0 
+CTP   CTP	  CTP    CH3    3 	  2.92    -1.46     0.21    -1.68     0.0      0.0
+
+HCP   CSR  CTP    CTP     3	  0.63     1.88     0.0     -2.51     0.0      0.0
+HCP   CTP   CTP    CTP     3	  0.63     1.88     0.0     -2.51     0.0      0.0 
+HCP   CH3  CTP    CTP     3	  0.63     1.88     0.0     -2.51     0.0      0.0 
+HCP   CTP   CTP    CSR    3	  0.63     1.88     0.0     -2.51     0.0      0.0
+HCP   CTP   CTP    CH3    3	  0.63     1.88     0.0     -2.51     0.0      0.0
+
+HCP   CSR  CTP    HCP     3	  0.63     1.88     0.0     -2.51     0.0      0.0
+HCP   CTP   CTP    HCP     3	  0.63     1.88     0.0     -2.51     0.0      0.0
+HCP   CH3  CTP    HCP     3	  0.63     1.88     0.0     -2.51     0.0      0.0
+
+HCP   CTP   CSR   CSB    3	  0.97     2.90     0.0     -3.87     0.0      0.0
+
+CSB  CSR   CTP   CTP     3 	  2.92    -1.46     0.21    -1.68     0.0      0.0 
+
+;torsion about the C(alphatic)-C(beta) bonds in thiophene
+
+CSB   CSB  CSR   CTP    3      	   0.0      0.0      0.0      0.0      0.0      0.0 
+CSA   CSB  CSR   CTP    3     	  2.49    -5.13     1.87     7.65    -1.86      0.0   
+CST   CSB  CSR   CTP    3     	  2.49    -5.13     1.87     7.65    -1.86      0.0 
+HCP    CSR  CSB   CSB   3      	   0.0      0.0      0.0      0.0      0.0      0.0
+HCP    CSR  CSB   CSA   3      	   0.0      0.0      0.0      0.0      0.0      0.0
+HCP    CSR  CSB   CST   3      	   0.0      0.0      0.0      0.0      0.0      0.0      
+
+;PCBM default 
+CA	CA	CA	CA	3	0	0	0	0	0	0
+HA	CA	CA	HA	3	0	0	0	0	0	0
+CA	CA	CA	HA	3	0	0	0	0	0	0
+CT	CA	CA	CA	3	0	0	0	0	0	0
+CT	CA	CA	HA	3	0	0	0	0	0	0
+CA	CA	CT	CT	3	0	0	0	0	0	0
+CA	CA	CT	CF	3	0	0	0	0	0	0
+CT	CT	CT	CT	3	0	0	0	0	0	0
+CT	CT	CT	C	3	0	0	0	0	0	0
+CT	CT	CT	HC	3	0	0	0	0	0	0
+HC	CT	CT	HC	3	0	0	0	0	0	0
+O	C	CT	CT	3	0	0	0	0	0	0
+O	C	CT	HC	3	0	0	0	0	0	0
+OS	C	CT	CT	3	0	0	0	0	0	0
+OS	C	CT	HC	3	0	0	0	0	0	0
+CT	C	OS	CT	3	0	0	0	0	0	0
+O	C	OS	CT	3	0	0	0	0	0	0
+C	OS	CT	HC	3	0	0	0	0	0	0
+CF	CT	CT	CT	3	0	0	0	0	0	0
+CF	CT	CT	HC	3	0	0	0	0	0	0
+CF	CF	CT	CA	3	0	0	0	0	0	0
+CF	CF	CT	CT	3	0	0	0	0	0	0
+CF	CF	CF	CF	3	0	0	0	0	0	0
+
+
+
+;PCBM   
+CA	CA	CA	CA	5		0	60.9	0	0
+HA	CA	CA	HA	5		0	60.9	0	0
+CA	CA	CA	HA	5		0	60.9	0	0
+CT	CA	CA	CA	5		0	60.9	0	0
+CT	CA	CA	HA	5		0	60.9	0	0
+CA	CA	CT	CT	5		0	0	0	0
+CA	CA	CT	CF	5		0	0	0	0
+CT	CT	CT	CT	5		5.46	-0.21	0.84	0
+CT	CT	CT	C	5		5.46	-0.21	0.84	0	;
+CT	CT	CT	HC	5		0	0	1.26	0
+HC	CT	CT	HC	5		0	0	1.26	0
+O	C	CT	CT	5		-1.1634	5.1576	-2.9148	0
+O	C	CT	HC	5		0	0	0	0
+OS	C	CT	CT	5		0	-2.3226	0	0
+OS	C	CT	HC	5		0	0.5544	0	0
+CT	C	OS	CT	5		19.6098	21.5208	0	0
+O	C	OS	CT	5		0	21.5208	0	0
+C	OS	CT	HC	5		0	0	0.8316	0
+CF	CT	CT	CT	5		5.46	-0.21	0.84	0
+CF	CT	CT	HC	5		0	0	1.26	0
+CF	CF	CT	CA	5		0	60.9	0	0
+CF	CF	CT	CT	5		0	60.9	0	0
+CF	CF	CF	CF	5		0	0	0	0	;
+
+;Impropers Dihedrals
+;  i	  j	  k	  l  func	  xi0  	       kxi
+
+;thiophene hydrogen
+ CSA    CSB     CSB     HCS	2  	180.0	       36.82
+ CST    CSB     CSB     HCS	2  	180.0	       36.82
+
+;intermonomer
+ ST	CSB	CSA	CSA	2	180.0	       36.82
+ 	
+;alkyl
+ CSA    CSB     CSB     CSR	2  	180.0	       36.82
+ CST    CSB     CSB     CSR	2  	180.0	       36.82
